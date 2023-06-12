@@ -1,0 +1,19 @@
+/* Twitter-Loader section */
+.loader {
+  background: transparent;
+  border-top: 2.5px solid transparent;
+  border-right: 2.5px solid transparent;
+  border-bottom: 2.5px solid transparent;
+  border-left: 2.5px solid white;
+  border-radius: 50%;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
