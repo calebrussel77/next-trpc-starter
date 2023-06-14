@@ -1,9 +1,13 @@
+import { Camera } from 'lucide-react';
 import { type ImageProps as NextImageProps } from 'next/dist/client/image';
 import NextImage from 'next/image';
 import React, { forwardRef, useState } from 'react';
-import { Camera } from 'lucide-react';
-import { cn } from '@/lib/utils';
+
 import { blurDataURL } from '@/utils/image';
+
+import { cn } from '@/lib/utils';
+
+import { ImageEmpty } from './image-empty/image-empty';
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 const DEFAULT_FONT_SIZE = 16;
@@ -15,7 +19,7 @@ const toRem = (px: number) => `${px / DEFAULT_FONT_SIZE}rem`;
  * <Image name={title} src={cover} h={120} w="100%" />
  *
  */
-export interface ImageOptions {
+interface ImageOptions {
   //The name of the image also use for alt prop
   alt: string;
 
@@ -35,9 +39,9 @@ export interface ImageOptions {
   position?: 'top' | 'center' | 'bottom';
 }
 
-export type ImageProps = NextImageProps & ImageOptions;
+type ImageProps = NextImageProps & ImageOptions;
 
-export const Image = forwardRef<HTMLDivElement, ImageProps>(
+const Image = forwardRef<HTMLDivElement, ImageProps>(
   (
     {
       fontSize,
@@ -129,5 +133,9 @@ export const Image = forwardRef<HTMLDivElement, ImageProps>(
     );
   }
 );
+
+export { ImageEmpty, Image };
+
+export type { ImageOptions, ImageProps };
 
 Image.displayName = 'Image';

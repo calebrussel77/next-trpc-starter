@@ -1,12 +1,8 @@
 import Link from 'next/link';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
-
 import { type FC } from 'react';
+
+import { Accordion } from '@/components/ui/accordion';
+
 import { Image } from '../../image';
 
 const FullPageError: FC<{ error: { message: string } }> = ({ error }) => {
@@ -42,14 +38,14 @@ const FullPageError: FC<{ error: { message: string } }> = ({ error }) => {
                   collapsible
                   className="w-full max-w-md"
                 >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="mt-3 rounded-md bg-gray-100 p-2">
+                  <Accordion.Item value="item-1">
+                    <Accordion.Trigger className="mt-3 rounded-md bg-gray-100 p-2">
                       Developer stack
-                    </AccordionTrigger>
-                    <AccordionContent className="mt-1 max-h-80 w-full max-w-xl overflow-y-auto rounded-md bg-gray-100 p-3 text-gray-500">
+                    </Accordion.Trigger>
+                    <Accordion.Content className="mt-1 max-h-80 w-full max-w-xl overflow-y-auto rounded-md bg-gray-100 p-3 text-gray-500">
                       {error?.message}
-                    </AccordionContent>
-                  </AccordionItem>
+                    </Accordion.Content>
+                  </Accordion.Item>
                 </Accordion>
 
                 <div className="mt-6">

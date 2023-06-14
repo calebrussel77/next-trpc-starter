@@ -23,7 +23,8 @@ const customJestConfig = {
   // if using TypeScript with a baseUrl set to the root directory
   // then you need the below for alias' to work
   moduleNameMapper: {
-    '^@components/(.*)$': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@public/(.*)$': '<rootDir>/public/$1',
   },
 
   moduleDirectories: ['node_modules', 'src'],

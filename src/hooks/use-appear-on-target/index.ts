@@ -1,0 +1,43 @@
+import { type MutableRefObject, useEffect, useState } from 'react';
+
+type UseAppearOnTargetProps = {
+  targetedRef?: MutableRefObject<HTMLElement>;
+  elementRef: MutableRefObject<HTMLElement>;
+  targetedSelector?: string;
+  classNameList: string[];
+  options?: IntersectionObserverInit;
+};
+
+const useAppearOnTarget = ({
+  options,
+  elementRef,
+  targetedRef,
+  targetedSelector,
+  classNameList,
+}: UseAppearOnTargetProps) => {
+  const [isAppear, setIsAppear] = useState(false);
+
+  useEffect(() => {
+    const targetedElement = document.querySelector(targetedSelector || '');
+    const hasTargetElement = targetedElement || targetedRef?.current;
+    if (!hasTargetElement) return;
+
+    const sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          setIsAppear(true);
+          elementRef?.current?.classList?.add(...classNameList);
+        } else {
+          setIsAppear(false);
+          elementRef?.current?.classList?.remove(...classNameList);
+        }
+      });
+    }, options);
+
+    sectionObserver?.observe(targetedElement! || targetedRef?.current);
+  });
+
+  return { isAppear, setIsAppear, elementRef };
+};
+
+export { useAppearOnTarget };

@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 
+import { Accordion } from '../../accordion';
 import { Button } from '../../button';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../../accordion';
 
 type TFullPageError = {
-  error: {name: string, message: string};
+  error: { name: string; message: string };
   onRetry?: () => void;
 };
 
@@ -26,21 +26,16 @@ export function SectionError({ onRetry, error }: TFullPageError) {
       {/* <BugFixIcon className="h-48 w-auto" /> */}
       <h3 className="mt-2 text-xl font-semibold text-gray-900">{title}</h3>
       <p className="mt-1 text-gray-500 max-w-md">{message}</p>
-      <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full max-w-md"
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="mt-3 rounded-md bg-gray-100 p-2">
-                      Developer stack
-                    </AccordionTrigger>
-                    <AccordionContent className="mt-1 max-h-80 w-full max-w-xl overflow-y-auto rounded-md bg-gray-100 p-3 text-gray-500">
-                      {errorMessage}
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-   
+      <Accordion type="single" collapsible className="w-full max-w-md">
+        <Accordion.Item value="item-1">
+          <Accordion.Trigger className="mt-3 rounded-md bg-gray-100 p-2">
+            Developer stack
+          </Accordion.Trigger>
+          <Accordion.Content className="mt-1 max-h-80 w-full max-w-xl overflow-y-auto rounded-md bg-gray-100 p-3 text-gray-500">
+            {errorMessage}
+          </Accordion.Content>
+        </Accordion.Item>
+      </Accordion>
 
       <div className="mt-6 flex items-center gap-3">
         <Button
@@ -64,7 +59,7 @@ export function SectionError({ onRetry, error }: TFullPageError) {
   );
 }
 
-function BugFixIcon({ className }: {className:string}) {
+function BugFixIcon({ className }: { className: string }) {
   return (
     <svg className={className} data-name="Layer 1" viewBox="0 0 1022.7 785.81">
       <defs>

@@ -1,13 +1,14 @@
-import { type FC } from 'react';
 import { type Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
+import { type FC } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import { ToastContainer } from 'react-toastify';
+
 import { FullPageError } from '@/components/ui/error';
-import { ToastContainer, toast } from 'react-toastify';
 
 type TAppContextProps = {
   children: React.ReactNode;
-  session?: Session;
+  session?: Session | null;
 };
 
 const AppContext: FC<TAppContextProps> = ({ children, session }) => {
