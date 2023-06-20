@@ -10,7 +10,7 @@ import { type ReactElement, type ReactNode } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { DefaultSeo } from '@/components/default-seo';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button/button';
 import { Notification } from '@/components/ui/notification';
 
 import { api } from '@/utils/api';

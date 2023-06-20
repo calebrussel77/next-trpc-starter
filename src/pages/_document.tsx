@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </Head>
-      <body className="scroll-smooth border-t-4 border-green-500 text-gray-800 bg-white font-sans text-base h-screen antialiased">
+      <body className="scroll-smooth text-gray-800 bg-white font-sans text-base h-screen antialiased">
         <Main />
         <NextScript />
       </body>
