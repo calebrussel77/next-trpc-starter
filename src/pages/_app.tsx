@@ -7,7 +7,6 @@ import { type Session } from 'next-auth';
 import { type AppType } from 'next/app';
 import { Router, useRouter } from 'next/router';
 import { type ReactElement, type ReactNode } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
 
 import { DefaultSeo } from '@/components/default-seo';
 import { Button } from '@/components/ui/button/button';

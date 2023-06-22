@@ -116,7 +116,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationGlobalProps>(
         })}
         {...props}
       >
-        <div className="p-4">
+        <div className="p-2">
           <div className="flex items-start">
             {!isDefault && (
               <VariantIcon

@@ -1,8 +1,8 @@
-import { type MutableRefObject, useEffect, useState } from 'react';
+import { type RefObject, useEffect, useState } from 'react';
 
 type UseAppearOnTargetProps = {
-  targetedRef?: MutableRefObject<HTMLElement>;
-  elementRef: MutableRefObject<HTMLElement>;
+  targetedRef?: RefObject<HTMLElement>;
+  elementRef: RefObject<HTMLElement>;
   targetedSelector?: string;
   classNameList: string[];
   options?: IntersectionObserverInit;

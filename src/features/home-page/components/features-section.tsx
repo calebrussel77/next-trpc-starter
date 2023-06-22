@@ -46,10 +46,10 @@ interface FeaturesSectionProps {
 
 const FeaturesSection: FC<FeaturesSectionProps> = ({}) => {
   return (
-    <div className="mt-32 sm:mt-56">
+    <div className="mt-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">
+          <h2 className="text-base font-semibold leading-7 text-green-600">
             Everything you need
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -82,7 +82,7 @@ const FeaturesSection: FC<FeaturesSectionProps> = ({}) => {
             <div key={feature.name} className="relative pl-9">
               <dt className="inline font-semibold text-gray-900">
                 <feature.icon
-                  className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
+                  className="absolute left-1 top-1 h-5 w-5 text-green-600"
                   aria-hidden="true"
                 />
                 {feature.name}

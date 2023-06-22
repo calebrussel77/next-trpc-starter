@@ -3,10 +3,8 @@ import { MainLayout } from '@/layouts';
 import { type ReactElement } from 'react';
 
 import {
-  FaqSection,
   FeaturesSection,
   HeroSection,
-  PricingSection,
   TestimonialSection,
 } from '@/features/home-page';
 
@@ -19,10 +17,10 @@ const HomePage = () => {
       <FeaturesSection />
       {/* Testimonial section */}
       <TestimonialSection />
+
       {/* Pricing section */}
-      <PricingSection />
+
       {/* FAQ section */}
-      <FaqSection />
     </>
   );
 };

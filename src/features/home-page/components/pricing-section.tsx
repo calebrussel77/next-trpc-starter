@@ -57,7 +57,7 @@ const PricingSection: FC<PricingSectionProps> = ({}) => {
         />
       </div>
       <div className="mx-auto max-w-2xl text-center lg:max-w-4xl">
-        <h2 className="text-base font-semibold leading-7 text-indigo-600">
+        <h2 className="text-base font-semibold leading-7 text-green-600">
           Pricing
         </h2>
         <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
@@ -87,7 +87,7 @@ const PricingSection: FC<PricingSectionProps> = ({}) => {
             <h3
               id={tier.id}
               className={cn(
-                tier.featured ? 'text-indigo-400' : 'text-indigo-600',
+                tier.featured ? 'text-green-400' : 'text-green-600',
                 'text-base font-semibold leading-7'
               )}
             >
@@ -130,7 +130,7 @@ const PricingSection: FC<PricingSectionProps> = ({}) => {
                 <li key={feature} className="flex gap-x-3">
                   <Check
                     className={cn(
-                      tier.featured ? 'text-indigo-400' : 'text-indigo-600',
+                      tier.featured ? 'text-green-400' : 'text-green-600',
                       'h-6 w-5 flex-none'
                     )}
                     aria-hidden="true"
@@ -144,8 +144,8 @@ const PricingSection: FC<PricingSectionProps> = ({}) => {
               aria-describedby={tier.id}
               className={cn(
                 tier.featured
-                  ? 'bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500'
-                  : 'text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline-indigo-600',
+                  ? 'bg-green-500 text-white shadow-sm hover:bg-green-400 focus-visible:outline-green-500'
+                  : 'text-green-600 ring-1 ring-inset ring-green-200 hover:ring-green-300 focus-visible:outline-green-600',
                 'mt-8 block rounded-md py-2.5 px-3.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10'
               )}
             >
