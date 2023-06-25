@@ -89,10 +89,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
     (Component as NextPageWithLayout).getLayout ?? (page => page);
 
   return (
-    <AppContext session={session}>
+    <>
       <DefaultSeo />
-      {getLayout(<Component {...pageProps} />)}
-    </AppContext>
+      <AppContext session={session}>
+        {getLayout(<Component {...pageProps} />)}
+      </AppContext>
+    </>
   );
 };
 

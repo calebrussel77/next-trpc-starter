@@ -1,6 +1,8 @@
 import { type Session } from 'next-auth';
 import React, { type FC } from 'react';
 
+import { LogoIcon } from '../icons/logo-icon';
+
 interface MobileNavbarProps {
   className?: string;
   session: Session | null;
@@ -13,11 +15,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ navigations }) => {
       <div className="flex items-center justify-between">
         <a href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Your Company</span>
-          <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt=""
-          />
+          <LogoIcon className="h-4 md:h-5 w-auto" />
         </a>
       </div>
       <div className="mt-6 flow-root">
@@ -38,7 +36,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ navigations }) => {
               href="#"
               className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
             >
-              Log in
+              Se connecter
             </a>
           </div>
         </div>

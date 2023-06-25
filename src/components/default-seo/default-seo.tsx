@@ -1,48 +1,47 @@
 import { DefaultSeo as DefaultNextSeo } from 'next-seo';
 import Head from 'next/head';
+import Script from 'next/script';
+
+const DOMAIN_URL = 'https://www.agorasafe.vercel.app';
 
 const DefaultSeo = () => {
   return (
     <>
       <DefaultNextSeo
-        defaultTitle="App Name - App description"
-        titleTemplate="%s | App Name"
-        canonical="https://www.finexs-tombola.com/"
+        defaultTitle="Agorasafe - Accédez à des services de qualité aux prix abordables au Cameroun."
+        titleTemplate="%s | Agorasafe"
         languageAlternates={[
-          { href: 'https://www.finexs-tombola.com', hrefLang: 'fr' },
+          { href: `${DOMAIN_URL}`, hrefLang: 'en' },
+          { href: `${DOMAIN_URL}/fr`, hrefLang: 'fr' },
         ]}
-        description="App description"
+        description="Agorasafe est la plateforme idéale pour les prestataires de services amateurs qui souhaitent présenter leurs compétences et talents à un public plus large, tout en aidant les clients à trouver des services abordables qui répondent à leurs besoins."
         openGraph={{
           type: 'website',
           locale: 'fr_FR',
-          url: 'https://www.finexs-tombola.com/',
+          url: `${DOMAIN_URL}/`,
           images: [
             {
-              url: 'https://www.finexs-tombola.com/app-preview.jpg',
-              alt: 'App preview',
-              type: 'image/jpeg',
-              secureUrl: 'https://www.finexs-tombola.com/app-preview.jpg',
+              url: `${DOMAIN_URL}/preview-agorasafe.png`,
+              width: 500,
+              height: 500,
+              alt: 'agorasafe preview',
+              type: 'image/png',
             },
           ],
-          site_name: 'finexs-tombola',
-        }}
-        twitter={{
-          handle: '@CalebElat',
-          site: '@CalebElat',
-          cardType: 'summary_large_image',
+          site_name: 'agorasafe',
         }}
       />
       <Head>
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="application-name" content="finexs-tombola" />
-        <meta name="apple-mobile-web-app-title" content="finexs-tombola" />
+        <meta name="application-name" content="agorasafe" />
+        <meta name="apple-mobile-web-app-title" content="agorasafe" />
         <meta name="theme-color" content="#ffff" />
         <meta name="msapplication-navbutton-color" content="#ffff" />
-        <meta name="author" content="Caleb Russel Elat" />
+        <meta name="author" content="Caleb russel" />
         <meta
           name="keywords"
-          content="finexs voyage, Finexs fête ses 20 ans, tombola, lots à gagner, voitures, cameroun, tirage au sort, jeux, concours, voiture à gagner, cameroun"
+          content="agorasafe,mise en relation, services à domicile, cameroun, prestataire amateurs, prix abordables, services abordables, vente, shop"
         />
         <meta
           name="apple-mobile-web-app-status-bar-style"
@@ -83,7 +82,7 @@ const DefaultSeo = () => {
           href="/android-chrome-512x512.png"
         />
       </Head>
-      {/* <Script
+      <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-6HRCBQQZHN"
         strategy="afterInteractive"
       />
@@ -95,7 +94,7 @@ const DefaultSeo = () => {
         
           gtag('config', 'G-6HRCBQQZHN');
         `}
-      </Script> */}
+      </Script>
     </>
   );
 };

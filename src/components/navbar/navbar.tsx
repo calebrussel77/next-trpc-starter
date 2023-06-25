@@ -1,11 +1,13 @@
-import { Menu } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { type Session } from 'next-auth';
+import Link from 'next/link';
 import React, { type FC, type ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
+import { LogoSymbolIcon } from '../icons/logo-icon';
 import { Button } from '../ui/button';
+import { FormSubscriptionModal } from '@/features/onboarding-souscription/components/form-subscription-modal';
 
 interface NavbarProps {
   className?: string;
@@ -24,20 +26,11 @@ const Navbar: FC<NavbarProps> = ({ className, children, navigations }) => {
       aria-label="Global"
     >
       <div className="flex lg:flex-1 items-center gap-3">
-        <a href="#" className="-m-1.5 p-1.5">
+        <Link href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Your Company</span>
-          <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-            alt=""
-          />
-        </a>
-        <button className="text-sm font-semibold leading-6 flex items-center gap-1 text-white">
-          <Search className="h-4 w-4" />
-          <span>Rechercher</span>
-        </button>
+          <LogoSymbolIcon className="h-7 md:h-8 w-auto" />
+        </Link>
       </div>
-      <div className="flex lg:hidden">{children}</div>
       <div className="hidden lg:flex lg:gap-x-12 lg:items-center">
         {navigations.map(item => (
           <a
@@ -49,12 +42,18 @@ const Navbar: FC<NavbarProps> = ({ className, children, navigations }) => {
           </a>
         ))}
       </div>
-      <div className="hidden lg:flex lg:items-center lg:flex-1 lg:justify-end">
-        <Button>Ajouter un endroit</Button>
-        <a href="#" className="ml-4 text-sm font-semibold leading-6 text-white">
+      <div className="flex items-center lg:flex-1 lg:justify-end">
+        <FormSubscriptionModal>
+          <Button size="sm">Demander un service</Button>
+        </FormSubscriptionModal>
+        <a
+          href="#"
+          className="ml-4 hidden lg:flex text-sm font-semibold leading-6 text-white"
+        >
           Se connecter <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
+      <div className="flex lg:hidden">{children}</div>
     </nav>
   );
 };

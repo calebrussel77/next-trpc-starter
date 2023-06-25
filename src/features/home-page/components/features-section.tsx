@@ -1,41 +1,46 @@
 import { Boxes, CalendarDays } from 'lucide-react';
 import React, { type FC } from 'react';
 
+import { Animate } from '@/components/ui/animate';
+import { Button } from '@/components/ui/button';
+import { Dialog } from '@/components/ui/dialog';
+import { SectionMessage } from '@/components/ui/section-message';
+
+import { FormSubscription } from '@/features/onboarding-souscription';
+import { FormSubscriptionModal } from '@/features/onboarding-souscription/components/form-subscription-modal';
+import { useOnboardingSubscriber } from '@/features/onboarding-souscription/services';
+
 const features = [
   {
-    name: 'Push to deploy.',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+    name: 'Accès à une large base de talents amateurs qualifiés.',
+    description: `Découvrez une communauté florissante de talents amateurs qualifiés au Cameroun. Trouvez le talent parfait pour votre projet, quel que soit votre domaine.`,
     icon: Boxes,
   },
   {
-    name: 'SSL certificates.',
-    description:
-      'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+    name: 'Transparence des prix et des compétences.',
+    description: `Obtenez une transparence totale des prix et des compétences des prestataires. Faites des choix éclairés grâce à des informations détaillées et des évaluations de clients.`,
     icon: CalendarDays,
   },
   {
-    name: 'Simple queues.',
+    name: 'Facilité de mise en relation et de gestion des projets.',
     description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
+      'Mettez-vous en relation facilement avec les prestataires et gérez vos projets sans tracas. Simplifiez votre processus de collaboration et réalisez vos projets en toute fluidité.',
     icon: Boxes,
   },
   {
-    name: 'Advanced security.',
+    name: 'Coûts abordables pour les services de haute qualité.',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+      'Des services de haute qualité à des prix abordables. Trouvez les prestataires amateurs les plus talentueux au Cameroun sans vous ruiner.',
     icon: CalendarDays,
   },
   {
-    name: 'Powerful API.',
-    description:
-      'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+    name: 'Visibilité accrue pour les prestataires.',
+    description: `Nous offrons une visibilité accrue pour les prestataires sur notre plateforme. Nous travaillons dur pour que les prestataires soient facilement trouvables et visibles pour les clients.`,
     icon: Boxes,
   },
   {
-    name: 'Database backups.',
-    description:
-      'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. ',
+    name: 'Priorisation des résultats de recherche autour de votre zone de localisation',
+    description: `Trouvez des prestataires proches de vous grâce à notre priorisation basée sur la localisation. Profitez de la commodité de travailler avec des talents locaux qui comprennent vos besoins spécifiques.`,
     icon: Boxes,
   },
 ];
@@ -45,28 +50,32 @@ interface FeaturesSectionProps {
 }
 
 const FeaturesSection: FC<FeaturesSectionProps> = ({}) => {
+  const { onSubscribe, isLoading, isSuccess } = useOnboardingSubscriber();
+
   return (
-    <div className="mt-32">
+    <div className="mt-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-base font-semibold leading-7 text-green-600">
-            Everything you need
+          <h2 className="text-base font-semibold leading-7 text-brand-600">
+            Tout ce dont vous avez besoin
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            No server? No problem.
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900">
+            Manque d'accès aux clients ou à des services abordables ? Pas de
+            problème.
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-            impedit perferendis suscipit eaque, iste dolor cupiditate
-            blanditiis.
+          <p className="mt-6 leading-7 text-gray-600">
+            Sur Agorasafe, les prestataires de services amateurs peuvent mettre
+            en valeur leurs compétences et talents, tandis que les clients
+            peuvent trouver des services abordables pour répondre à leurs
+            besoins.
           </p>
         </div>
       </div>
       <div className="relative overflow-hidden pt-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <img
-            src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
-            alt="App screenshot"
+            src="/images/femme-charpentière.jpg"
+            alt="maman-africaine-phone"
             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
             width={2432}
             height={1442}
@@ -82,7 +91,7 @@ const FeaturesSection: FC<FeaturesSectionProps> = ({}) => {
             <div key={feature.name} className="relative pl-9">
               <dt className="inline font-semibold text-gray-900">
                 <feature.icon
-                  className="absolute left-1 top-1 h-5 w-5 text-green-600"
+                  className="absolute left-1 top-1 h-5 w-5 text-brand-600"
                   aria-hidden="true"
                 />
                 {feature.name}
@@ -91,6 +100,11 @@ const FeaturesSection: FC<FeaturesSectionProps> = ({}) => {
             </div>
           ))}
         </dl>
+        <FormSubscriptionModal>
+          <Button className="mx-auto flex justify-center mt-10">
+            Inscrivez-vous dès maintenant
+          </Button>
+        </FormSubscriptionModal>
       </div>
     </div>
   );

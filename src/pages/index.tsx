@@ -26,13 +26,7 @@ const HomePage = () => {
 };
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
-  const title = 'Se connecter';
-  const description = 'Connectez-vous sur Finexs Tombola';
-  return (
-    <MainLayout title={title} description={description}>
-      {page}
-    </MainLayout>
-  );
+  return <MainLayout>{page}</MainLayout>;
 };
 
 export default HomePage;

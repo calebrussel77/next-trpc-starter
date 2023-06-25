@@ -1,25 +1,34 @@
+import { useMutation } from '@tanstack/react-query';
 import { useKeenSlider } from 'keen-slider/react';
 import React, { type FC } from 'react';
 
+import { Animate } from '@/components/ui/animate';
 import { Button } from '@/components/ui/button';
+import { Dialog } from '@/components/ui/dialog';
+import { Image } from '@/components/ui/image';
+import { SectionMessage } from '@/components/ui/section-message';
+
+import { FormSubscription } from '@/features/onboarding-souscription';
+import { FormSubscriptionModal } from '@/features/onboarding-souscription/components/form-subscription-modal';
+import { useOnboardingSubscriber } from '@/features/onboarding-souscription/services';
 
 interface HeroSectionProps {
   className?: string;
 }
 
 const images = [
-  '/images/chutes-camer.jpg',
-  'https://kathalog.net/admin/images/86c3488fe6cab881290a735d72c93d10.jpeg',
-  'https://p4.storage.canalblog.com/47/45/1672776/125250378_o.jpg',
-  'https://www.237online.com/wp-content/uploads/2022/01/parc-des-loisirs-de-Bafoussam.jpg',
-  'https://kathalog.net/admin/images/3672062650000.JPG',
+  '/images/coiffeur-homme-salon.jpg',
+  '/images/femme-menage.jpg',
+  '/images/coiffure-femme.jpg',
+  '/images/cordonnier-africain-02.jpg',
 ];
 
-const DURATION_MS = 4_000;
+const DURATION_MS = 8_000;
 
 const HeroSection: FC<HeroSectionProps> = ({}) => {
   const [opacities, setOpacities] = React.useState<number[]>([]);
 
+  // TODO : Refactor this, by using custom hook
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
       slides: images.length,
@@ -65,7 +74,7 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
 
   return (
     <>
-      <div className="relative isolate overflow-hidden bg-green-900 md:pb-10">
+      <div className="relative isolate overflow-hidden bg-brand-900 md:pb-10">
         <div ref={sliderRef} className="absolute inset-0 -z-20">
           {images.map((src, idx) => (
             <div
@@ -73,14 +82,15 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
               className="fader__slide"
               style={{ opacity: opacities[idx] }}
             >
-              <img
+              <Image
                 src={src}
+                alt="Images banner"
                 className="absolute inset-0 -z-20 h-full w-full object-cover"
               />
             </div>
           ))}
         </div>
-        <div className="absolute inset-0 -z-10 bg-opacity-60 bg-gray-900 h-full w-full object-cover" />
+        <div className="absolute inset-0 -z-10 bg-opacity-70 bg-gray-900 h-full w-full object-cover" />
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
@@ -94,33 +104,37 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
           />
         </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl py-32">
+          <div className="mx-auto max-w-2xl pt-32 pb-16 lg:pb-24">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-              <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-300 ring-1 ring-white/30 hover:ring-white/40">
-                Announcing our next round of funding.{' '}
-                <a href="#" className="font-semibold text-white">
-                  <span className="absolute inset-0" aria-hidden="true" />
-                  Read more <span aria-hidden="true">&rarr;</span>
-                </a>
+              <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-200 ring-1 ring-white/30 hover:ring-white/40">
+                Enregistrez-vous dès aujourd'hui pour être parmi les premiers à
+                profiter des services exceptionnels sur Agorasafe.
+                <FormSubscriptionModal>
+                  <button className="ml-0.5 font-semibold text-brand-400">
+                    <span className="absolute inset-0" aria-hidden="true" />{' '}
+                    Inscrivez-vous maintenant{' '}
+                    <span aria-hidden="true">&rarr;</span>
+                  </button>
+                </FormSubscriptionModal>
               </div>
             </div>
             <div className="text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                Deploy to the cloud with confidence
+              <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
+                Découvrez des services exceptionnels à des prix abordables
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
+              <p className="mt-6 text-base md:text-lg leading-8 text-gray-200">
+                Que vous ayez besoin d'un photographe, d'un mécanicien, d'un
+                designer graphique, d'un frigoriste, et bien plus encore,
+                Agorasafe vous offre un accès facile à une communauté de talents
+                qualifiés, transparente et fiable à travers le cameroun.
               </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Button>Get started</Button>
-                <a
-                  href="#"
-                  className="text-sm font-semibold leading-6 text-white"
-                >
+              <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-y-3 md:gap-y-0 md:gap-x-6">
+                <FormSubscriptionModal>
+                  <Button>Commencez maintenant</Button>
+                </FormSubscriptionModal>
+                <Button variant="link" className="text-white">
                   Live demo <span aria-hidden="true">→</span>
-                </a>
+                </Button>
               </div>
             </div>
           </div>
@@ -137,8 +151,8 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
             }}
           />
         </div>
+        <div id="home__changer" />
       </div>
-      <div id="home__changer" />
     </>
   );
 };

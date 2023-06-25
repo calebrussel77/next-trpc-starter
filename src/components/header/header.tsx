@@ -13,7 +13,8 @@ import { Sheet } from '../ui/sheet';
 const navigations = [
   { name: 'Explorer', href: '#' },
   { name: 'Les mieux notés', href: '#' },
-  { name: "M'acheter un café", href: '#' },
+  { name: 'Devenir prestataire', href: '#' },
+  // { name: "M'acheter un café", href: '#' },
 ];
 
 const options = {

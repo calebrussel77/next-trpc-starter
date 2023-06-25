@@ -20,28 +20,28 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 161 94% 30%;
+    --foreground: 231 62% 51%;
 
-    --muted: 162 81% 96%;
+    --muted: 222 73% 93%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 161 94% 30%;
+    --popover-foreground: 231 62% 51%;
 
     --card: 0 0% 100%;
-    --card-foreground: 161 94% 30%;
+    --card-foreground: 231 62% 51%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
-    --primary: 161 94% 30%;
+    --primary: 231 62% 51%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 162 81% 96%;
-    --secondary-foreground: 161 94% 30%;
+    --secondary-foreground: 231 62% 51%;
 
     --accent: 162 81% 96%;
-    --accent-foreground: 161 94% 30%;
+    --accent-foreground: 231 62% 51%;
 
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
@@ -49,39 +49,18 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
-  }
 
-  .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
-
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
-
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
-
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 1.2%;
-
-    --secondary: 161 94% 30%;
-    --secondary-foreground: 210 40% 98%;
-
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-
-    --ring: 216 34% 17%;
-
-    --radius: 0.5rem;
+    /* #354cd0 => blue */
+    --color-brand-50: 241 244 253;
+    --color-brand-100: 223 231 250;
+    --color-brand-200: 199 212 246;
+    --color-brand-300: 160 185 240;
+    --color-brand-400: 115 148 231;
+    --color-brand-500: 83 113 222;
+    --color-brand-600: 53 76 208;
+    --color-brand-700: 53 66 192;
+    --color-brand-800: 48 56 157;
+    --color-brand-900: 44 52 124;
   }
 
   /* To blur the background of an element */

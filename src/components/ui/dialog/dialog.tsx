@@ -50,8 +50,6 @@ const DialogContent = React.forwardRef<
   const refs = useMergeRefs(scrollRef, ref);
   const { hasScrolled } = useScrolling(scrollRef);
 
-  console.log({ hasScrolled });
-
   return (
     <DialogPortal>
       <DialogOverlay />
@@ -89,7 +87,7 @@ const DialogHeader = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'sticky top-0 inset-x-0 w-full py-3 px-6 bg-background flex flex-row justify-between items-start',
+      'sticky top-0 inset-x-0 w-full py-4 px-6 bg-background flex flex-row justify-between items-start',
       'border-b',
       className
     )}
